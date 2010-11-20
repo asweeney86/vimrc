@@ -144,4 +144,5 @@ let g:miniBufExplModSelTarget = 1
 
 
 autocmd bufwritepost .vimrc source $MYVIMRC
+autocmd BufRead,BufNewFile *.mako set syntax=htmldjango
 
