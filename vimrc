@@ -77,8 +77,6 @@ autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" -
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 
 
-" Turn on autocomplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " display the current mode and partially-typed commands in the status line:
 set showmode
@@ -125,9 +123,6 @@ set showmatch
 set hlsearch
 
 
-" Rebind autocomplete to ctrl-space
-inoremap <Nul> <C-x><C-o> 
-
 " Add tags
 
 "set tags+=$HOME/.vim/tags/python.ctags
@@ -146,3 +141,23 @@ let g:miniBufExplModSelTarget = 1
 autocmd bufwritepost .vimrc source $MYVIMRC
 autocmd BufRead,BufNewFile *.mako set syntax=htmldjango
 
+" Omni Complete ***************************************************
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
+
+
+" Rebind autocomplete to ctrl-space
+inoremap <Nul> <C-x><C-o> 
+
+" Omnicomplete close buffer after function selected
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif 
+set completeopt+=longest
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
