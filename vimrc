@@ -14,6 +14,7 @@ set expandtab
 set smartindent
 set autoindent
 set showmatch
+syntax on
 
 set ruler
 set nocompatible
@@ -42,7 +43,9 @@ set formatoptions=qrn1
 
 " Not supported until version 7.3
 "set colorcolumn=85
-
+if version >= 703
+    set colorcolumn=80
+endif
 " turn on whitespace
 
 map <F2> :NERDTreeToggle<cr>
@@ -78,17 +81,19 @@ autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" -
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 
 
+" Turn on autocomplete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " display the current mode and partially-typed commands in the status line:
 set showmode
 set showcmd
 
 " enable filetype detection:
+set nocp
 filetype on
 
 " for C-like programming, have automatic indentation:
-autocmd FileType c,cpp,slang set cindent shiftwidth=8 tabstop=8
-
+autocmd FileType c,cpp,slang set cindent shiftwidth=4 tabstop=4 softtabstop=4
 
 " for actual C (not C++) programming where comments have explicit end
 " characters, if starting a new line in the middle of a comment automatically
@@ -124,6 +129,14 @@ set showmatch
 set hlsearch
 
 
+" Rebind autocomplete to ctrl-space
+" inoremap <Nul> <C-x><C-o> 
+
+" Super tab
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
+"highlight Pmenu guibg=brown gui=bold
+"highlight Pmenu ctermbg=238 gui=bold
 " Add tags
 
 "set tags+=$HOME/.vim/tags/python.ctags
@@ -138,29 +151,22 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1
 
+" Omnicomplete
+set ofu=syntaxcomplete#Complete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
 
-autocmd bufwritepost .vimrc source $MYVIMRC
-autocmd BufRead,BufNewFile *.mako set syntax=htmldjango
-
-" Omni Complete ***************************************************
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
-
-
-
-" Omnicomplete close buffer after function selected
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif 
-
-set completeopt+=longest
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Rebind autocomplete to ctrl-space
-inoremap <Nul> <C-x><C-o> 
+autocmd bufwritepost .vimrc source $MYVIMRC
+
