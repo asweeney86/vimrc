@@ -3,6 +3,7 @@ filetype plugin indent on
 set nocompatible
 set modelines=0
 
+syntax on
 colorscheme desert
 set number
 set shiftwidth=4
@@ -63,7 +64,7 @@ if has("gui_running")
     elseif has("gui_win32")
     else
         let do_syntax_sel_menu = 1|runtime! synmenu.vim
-        set transparency=10
+        set transparency=0
         set guifont=Consolas:h11
     endif
 endif
@@ -153,11 +154,13 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
 
 
-" Rebind autocomplete to ctrl-space
-inoremap <Nul> <C-x><C-o> 
 
 " Omnicomplete close buffer after function selected
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif 
+
 set completeopt+=longest
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+" Rebind autocomplete to ctrl-space
+inoremap <Nul> <C-x><C-o> 
