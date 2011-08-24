@@ -93,7 +93,7 @@ set nocp
 filetype on
 
 " for C-like programming, have automatic indentation:
-autocmd FileType c,cpp,slang set cindent shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType c,cpp,slang set cindent expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 " for actual C (not C++) programming where comments have explicit end
 " characters, if starting a new line in the middle of a comment automatically
