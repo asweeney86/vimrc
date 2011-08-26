@@ -4,7 +4,8 @@ filetype plugin indent on
 set nocompatible
 set modelines=0
 
-colorscheme desert
+set t_Co=256
+colorscheme molokai
 set number
 set shiftwidth=4
 set softtabstop=4
