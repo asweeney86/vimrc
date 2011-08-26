@@ -1,10 +1,12 @@
+call pathogen#infect()
 filetype off
 filetype plugin indent on
 set nocompatible
 set modelines=0
-
 syntax on
-colorscheme desert
+set t_Co=256
+colorscheme molokai
+
 set number
 set shiftwidth=4
 set softtabstop=4
@@ -48,6 +50,8 @@ if version >= 703
 endif
 " turn on whitespace
 
+
+map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F2> :NERDTreeToggle<cr>
 map <F3> :TlistToggle<cr>
 let NERDTreeIgnore = ['\.pyc$','\.o$','\.d$']
@@ -93,7 +97,7 @@ set nocp
 filetype on
 
 " for C-like programming, have automatic indentation:
-autocmd FileType c,cpp,slang set cindent shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType c,cpp,slang set cindent expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 " for actual C (not C++) programming where comments have explicit end
 " characters, if starting a new line in the middle of a comment automatically
@@ -165,8 +169,14 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-" Rebind autocomplete to ctrl-space
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+
 autocmd bufwritepost .vimrc source $MYVIMRC
 
