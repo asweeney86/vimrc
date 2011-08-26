@@ -1,6 +1,6 @@
 [submodule "bundle/syntastic"]
-    path = bundle/syntastic
-    url = https://github.com/scrooloose/syntastic.git 
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
