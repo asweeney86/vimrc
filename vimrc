@@ -50,7 +50,7 @@ endif
 
 map <F2> :NERDTreeToggle<cr>
 map <F3> :TlistToggle<cr>
-
+let NERDTreeIgnore = ['\.pyc$','\.o$','\.d$']
 " line indent
 nmap <D-[> <<
 nmap <D-]> >>
