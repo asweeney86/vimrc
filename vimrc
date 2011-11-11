@@ -175,8 +175,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
+"let g:syntastic_auto_jump=1
+"let g:syntastic_auto_loc_list=1
 
 autocmd bufwritepost .vimrc source $MYVIMRC
 
