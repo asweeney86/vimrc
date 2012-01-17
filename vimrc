@@ -42,7 +42,7 @@ set noswapfile
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-
+set formatoptions+=l
 " Not supported until version 7.3
 "set colorcolumn=85
 if version >= 703
