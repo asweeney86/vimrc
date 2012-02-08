@@ -135,6 +135,13 @@ set showmatch
 set hlsearch
 
 
+" folding settings
+set foldmethod=indent   " fold based on indent
+set foldnestmax=10      " deepest fold is 10 levels
+set nofoldenable        " dont fold by default
+set foldlevel=1         " set default fold level to 1
+
+
 " Rebind autocomplete to ctrl-space
 " inoremap <Nul> <C-x><C-o> 
 
