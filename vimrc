@@ -43,6 +43,8 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 
+
+
 " Not supported until version 7.3
 "set colorcolumn=85
 if version >= 703
@@ -54,7 +56,7 @@ endif
 map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F2> :NERDTreeToggle<cr>
 map <F3> :TlistToggle<cr>
-let NERDTreeIgnore = ['\.pyc$','\.o$','\.d$']
+let NERDTreeIgnore = ['\.pyc$','\.o$']
 " line indent
 nmap <D-[> <<
 nmap <D-]> >>
@@ -66,7 +68,7 @@ if has("gui_running")
     set lines=30
     set columns=80
     set cursorline
-    colorscheme wombat
+    "colorscheme wombat
     if has("gui_gtk2")
     elseif has("gui_win32")
     else
@@ -175,8 +177,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
+"let g:syntastic_auto_jump=1
+"let g:syntastic_auto_loc_list=1
 
 autocmd bufwritepost .vimrc source $MYVIMRC
 
