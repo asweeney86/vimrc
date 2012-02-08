@@ -43,8 +43,7 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 
-
-
+set formatoptions+=l
 " Not supported until version 7.3
 "set colorcolumn=85
 if version >= 703
@@ -65,8 +64,8 @@ vmap <D-]> >gv
 
 if has("gui_running")
     set guioptions-=T "no toolbar for gui
-    set lines=30
-    set columns=80
+    "set lines=30
+    "set columns=80
     set cursorline
     "colorscheme wombat
     if has("gui_gtk2")
@@ -97,6 +96,7 @@ set showcmd
 " enable filetype detection:
 set nocp
 filetype on
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent expandtab shiftwidth=4 tabstop=4 softtabstop=4
@@ -173,10 +173,11 @@ set completeopt=menuone,menu,longest,preview
 
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_enable_signs=1
+"SyntasticDisable
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_enable_signs=1
 "let g:syntastic_auto_jump=1
 "let g:syntastic_auto_loc_list=1
 
