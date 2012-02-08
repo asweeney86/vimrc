@@ -181,5 +181,7 @@ set completeopt=menuone,menu,longest,preview
 "let g:syntastic_auto_jump=1
 "let g:syntastic_auto_loc_list=1
 
+set statusline+=%{fugitive#statusline()}
+
 autocmd bufwritepost .vimrc source $MYVIMRC
 
