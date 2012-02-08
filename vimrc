@@ -130,7 +130,7 @@ set ignorecase
 set smartcase
 " show the `best match so far' as search strings are typed:
 set incsearch
-set gdefault
+"set gdefault
 set showmatch
 set hlsearch
 
