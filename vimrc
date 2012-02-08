@@ -183,12 +183,12 @@ set completeopt=menuone,menu,longest,preview
 "SyntasticDisable
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_enable_signs=1
+set statusline+=%*
+let g:syntastic_enable_signs=1
 "let g:syntastic_auto_jump=1
 "let g:syntastic_auto_loc_list=1
 
 set statusline+=%{fugitive#statusline()}
-
+set statusline+=\ %f%R%=%m[row\ %l/%L,\ column\ %v\ (%c)]
 autocmd bufwritepost .vimrc source $MYVIMRC
 
