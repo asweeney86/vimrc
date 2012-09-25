@@ -73,7 +73,6 @@ if has("gui_running")
     else
         let do_syntax_sel_menu = 1|runtime! synmenu.vim
         set transparency=0
-        set guifont=Consolas:h11
     endif
 endif
 
@@ -188,7 +187,13 @@ let g:syntastic_enable_signs=1
 "let g:syntastic_auto_jump=1
 "let g:syntastic_auto_loc_list=1
 
-set statusline+=%{fugitive#statusline()}
-set statusline+=\ %f%R%=%m[row\ %l/%L,\ column\ %v\ (%c)]
+"set statusline+=%{fugitive#statusline()}
+"set statusline+=\ %f%R%=%m[row\ %l/%L,\ column\ %v\ (%c)]
+
+
+" Let vim powerline be fancy
+let g:Powerline_symbols = 'fancy'
+
+
 autocmd bufwritepost .vimrc source $MYVIMRC
 
