@@ -5,6 +5,12 @@ Installation
     git submodule init
     git submodule update
 
+Setup command-t
+
+    cd ~/.vim/bundle/command-t/ruby/command-t
+    ruby extconf.rb
+    make
+
 Create symlink:
     
     ln -s ~/.vim/vimrc ~/.vimrc
