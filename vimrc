@@ -146,6 +146,10 @@ let g:Powerline_symbols = 'fancy'
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
+" Disable auto complete
+let g:neocomplcache_disable_auto_complete = 1
+" Let neocomplete choose what it wants
+let g:neocomplcache_enable_auto_select = 1
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
@@ -157,6 +161,11 @@ let g:neocomplcache_enable_underbar_completion = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+imap  <silent><expr><tab>  neocomplcache#sources#snippets_complete#expandable() ? "\<plug>(neocomplcache_snippets_expand)" : (pumvisible() ? "\<c-e>" : "\<tab>")
+smap  <tab>  <right><plug>(neocomplcache_snippets_jump) 
+inoremap <expr><c-e>     neocomplcache#complete_common_string()
+
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -177,4 +186,4 @@ let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 " autocmd bufwritepost .vimrc source $MYVIMRC
-
+set wildignore+=*.o,*.obj,.git
