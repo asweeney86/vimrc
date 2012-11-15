@@ -150,7 +150,7 @@ let g:Powerline_symbols = 'fancy'
 let g:acp_enableAtStartup = 0
 " Disable auto complete
 let g:neocomplcache_disable_auto_complete = 1
-" Let neocomplete choose which one it wants
+" Let neocomplete choose what it wants
 let g:neocomplcache_enable_auto_select = 1
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
