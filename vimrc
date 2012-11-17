@@ -202,13 +202,14 @@ let g:neocomplcache_force_overwrite_completefunc = 1
 " Disable auto popup, use <Tab> to autocomplete
 let g:clang_complete_auto = 0
 " Show clang errors in the quickfix window
-let g:clang_complete_copen = 1
+let g:clang_complete_copen=0
 let g:clang_auto_select=1
 let g:clang_user_options='|| exit 0'
 let g:clang_close_preview=1
 let g:clang_complete_macros=1
-let g:clang_hl_errors=1
+"let g:clang_hl_errors=1
 "let g:clang_use_library = 1
-
+"let g:clang_auto_user_options='path, .clang_complete'
+"
 " autocmd bufwritepost .vimrc source $MYVIMRC
 set wildignore+=*.o,*.obj,.git
