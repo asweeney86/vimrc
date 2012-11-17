@@ -77,7 +77,6 @@ filetype plugin on
 filetype indent on
 filetype on
 
-
 " enable filetype detection:
 au BufNewFile,BufRead *.ejs setlocal filetype=html
 
@@ -130,7 +129,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 " Omnicomplete
-set ofu=syntaxcomplete#Complete
+"set ofu=syntaxcomplete#Complete
 "let OmniCpp_NamespaceSearch = 1
 "let OmniCpp_GlobalScopeSearch = 1
 "let OmniCpp_ShowAccess = 1
@@ -140,12 +139,14 @@ set ofu=syntaxcomplete#Complete
 "let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 "let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 "" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+" au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"set completeopt=menuone,menu,longest,preview
 
-let g:clang_user_options='|| exit 0'
-let g:clang_close_preview=1
-
+" Complete options (disable preview scratch window)
+set completeopt=menu,menuone,longest
+" Limit popup menu height
+set pumheight=15
+  
 " Let vim powerline be fancy
 let g:Powerline_symbols = 'fancy'
 
@@ -171,15 +172,13 @@ imap  <silent><expr><tab>  neocomplcache#sources#snippets_complete#expandable() 
 smap  <tab>  <right><plug>(neocomplcache_snippets_jump) 
 inoremap <expr><c-e>     neocomplcache#complete_common_string()
 
-
-
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType cpp setlocal omnifunc=omni#cpp#complete#Main
+"autocmd FileType cpp setlocal omnifunc=omni#cpp#complete#Main
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
@@ -190,6 +189,26 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+let g:neocomplcache_force_overwrite_completefunc = 1
+"let g:neocomplcache_force_omni_patterns.c ='[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplcache_force_omni_patterns.cpp =
+"            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:neocomplcache_force_omni_patterns.objc =
+"            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:neocomplcache_force_omni_patterns.objcpp =
+"            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" Disable auto popup, use <Tab> to autocomplete
+let g:clang_complete_auto = 0
+" Show clang errors in the quickfix window
+let g:clang_complete_copen = 1
+let g:clang_auto_select=1
+let g:clang_user_options='|| exit 0'
+let g:clang_close_preview=1
+let g:clang_complete_macros=1
+let g:clang_hl_errors=1
+"let g:clang_use_library = 1
 
 " autocmd bufwritepost .vimrc source $MYVIMRC
 set wildignore+=*.o,*.obj,.git
