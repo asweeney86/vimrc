@@ -25,6 +25,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'othree/html5.vim'
+Bundle 'ack.vim'
 
 filetype plugin indent on
 set nocompatible
