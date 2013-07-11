@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "--[ Cloning repo"
-git clone git://github.com/asweeney86/vimrc ~/.vim
+git clone https://github.com/asweeney86/vimrc.git ~/.vim
 
 echo "--[ Linking vimrc"
 ln -s ~/.vim/vimrc ~/.vimrc
@@ -12,7 +12,7 @@ git submodule init
 git submodule update
 
 echo "--[ Installing all bundles"
-vim +BundleInstall +qall 2> /dev/null
+vim -T dumb -n -es +BundleInstall +qall 
 
 echo "--[ command-t setup"
 pushd ~/.vim/bundle/Command-T/ruby/command-t/
@@ -22,7 +22,7 @@ popd
 
 echo "--[ ymc setup"
 pushd ~/.vim/bundle/YouCompleteMe/
-sh ./install.sh
+sh ./install.sh --clang-completer
 popd
 
 echo "--[ Done"
