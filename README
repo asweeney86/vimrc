@@ -1,16 +1,2 @@
 Installation
-
-    git clone git://github.com/asweeney86/vimrc ~/.vim
-    cd ~/.vim
-    git submodule init
-    git submodule update
-
-Setup command-t
-
-    cd ~/.vim/bundle/command-t/ruby/command-t
-    ruby extconf.rb
-    make
-
-Create symlink:
-    
-    ln -s ~/.vim/vimrc ~/.vimrc
+    curl -L https://raw.github.com/asweeney86/vimrc/master/install.sh | sh
