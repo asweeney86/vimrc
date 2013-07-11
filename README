@@ -1,2 +1,2 @@
 Installation
-    curl -L https://raw.github.com/asweeney86/vimrc/master/install.sh | sh
+    curl -SsL https://raw.github.com/asweeney86/vimrc/master/install.sh | sh

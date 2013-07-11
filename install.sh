@@ -12,7 +12,7 @@ git submodule init
 git submodule update
 
 echo "--[ Installing all bundles"
-vim +BundleInstall +qall
+vim +BundleInstall +qall 2> /dev/null
 
 echo "--[ command-t setup"
 pushd ~/.vim/bundle/Command-T/ruby/command-t/
