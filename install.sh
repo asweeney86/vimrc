@@ -2,6 +2,9 @@
 
 echo "--[ Cloning repo"
 git clone git://github.com/asweeney86/vimrc ~/.vim
+
+echo "--[ Linking vimrc"
+ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
 
 echo "--[ Setting up vundle"
