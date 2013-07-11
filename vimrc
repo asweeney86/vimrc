@@ -31,7 +31,7 @@ set nocompatible
 set modelines=0
 syntax on
 set t_Co=256
-colorscheme molokai
+silent! colorscheme molokai
 
 set number
 set shiftwidth=4
