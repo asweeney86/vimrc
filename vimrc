@@ -32,6 +32,7 @@ Bundle 'ack.vim'
 Bundle 'uarun/vim-protobuf'
 Bundle 'Jinja'
 Bundle 'bling/vim-airline'
+Bundle 'jnwhiteh/vim-golang'
 
 filetype plugin indent on
 set nocompatible
@@ -156,7 +157,6 @@ let g:CommandTScanDotDirectories = 1
 let g:CommandTAlwaysShowDotFiles = 1
 let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
