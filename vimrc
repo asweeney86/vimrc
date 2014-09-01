@@ -1,6 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set shell=/bin/bash
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -15,7 +17,7 @@ Bundle 'Valloric/MatchTagAlways'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'JSON.vim'
 Bundle 'mako.vim'
@@ -26,6 +28,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'othree/html5.vim'
 Bundle 'ack.vim'
+Bundle 'jnwhiteh/vim-golang'
 
 filetype plugin indent on
 set nocompatible
@@ -58,7 +61,7 @@ set showmode
 set showcmd
 set wildmenu
 set wildmode=list:longest
-set wildignore+=*.o,*.obj,.git,*.so
+set wildignore+=*.o,*.obj,.git,*.so,node_modules
 set ttyfast
 set backspace=indent,eol,start
 set scrolloff=3
@@ -142,5 +145,8 @@ set pumheight=15
   
 " Let vim powerline be fancy
 let g:Powerline_symbols = 'fancy'
+let g:CommandTScanDotDirectories = 1
+let g:CommandTAlwaysShowDotFiles = 1
+let g:ycm_confirm_extra_conf = 0
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-set shell=/bin/bash\ -l
