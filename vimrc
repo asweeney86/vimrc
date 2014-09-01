@@ -1,6 +1,9 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set shell=/bin/bash
+set encoding=utf-8
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -15,7 +18,7 @@ Bundle 'Valloric/MatchTagAlways'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'JSON.vim'
 Bundle 'mako.vim'
@@ -26,6 +29,9 @@ Bundle 'tpope/vim-repeat'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'othree/html5.vim'
 Bundle 'ack.vim'
+Bundle 'uarun/vim-protobuf'
+Bundle 'Jinja'
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on
 set nocompatible
@@ -58,7 +64,8 @@ set showmode
 set showcmd
 set wildmenu
 set wildmode=list:longest
-set wildignore+=*.o,*.obj,.git,*.so
+set wildignore+=*.o,*.obj,.git,*.so*,*.lo,*.la,*.a,*.Plo,*.lai,*.Po,node_modules/**
+let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" 
 set ttyfast
 set backspace=indent,eol,start
 set scrolloff=3
@@ -84,6 +91,7 @@ set tags+=./tags;$HOME
 
 map <F2> :NERDTreeToggle<cr>
 map <F3> :Tagbar<cr>
+noremap <F5> :CommandTFlush<CR>
 
 let NERDTreeIgnore = ['\.pyc$','\.o$']
 " Remap the escape key to jj
@@ -106,6 +114,7 @@ set hlsearch
 
 " enable filetype detection:
 au BufNewFile,BufRead *.ejs setlocal filetype=html
+au BufNewFile,BufRead *.spec.template setlocal filetype=spec
 
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang,make,automake setlocal cindent noexpandtab shiftwidth=8 tabstop=8 softtabstop=8
@@ -130,6 +139,7 @@ autocmd FileType html,css setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidt
 " (despite the mappings later):
 autocmd FileType make setlocal noexpandtab shiftwidth=8 tabstop=8 softtabstop=8
 
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " folding settings
 set foldmethod=indent   " fold based on indent
@@ -142,5 +152,11 @@ set pumheight=15
   
 " Let vim powerline be fancy
 let g:Powerline_symbols = 'fancy'
+let g:CommandTScanDotDirectories = 1
+let g:CommandTAlwaysShowDotFiles = 1
+let g:ycm_confirm_extra_conf = 0
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
-set shell=/bin/bash\ -l
