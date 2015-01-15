@@ -26,6 +26,7 @@ Bundle 'wombat256.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
+Plugin 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'othree/html5.vim'
 Bundle 'ack.vim'
@@ -159,4 +160,7 @@ let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" Disable code folding for vim
+let g:vim_markdown_folding_disabled=1
 
