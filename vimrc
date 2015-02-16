@@ -4,39 +4,43 @@ filetype off                   " required!
 set shell=/bin/bash
 set encoding=utf-8
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
-Bundle 'molokai'
-Bundle 'go.vim'
-Bundle 'repeat.vim'
-Bundle 'wincent/Command-T'
-Bundle 'Valloric/MatchTagAlways'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
-Bundle 'Lokaltog/powerline'
-Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'JSON.vim'
-Bundle 'mako.vim'
-Bundle 'wombat256.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'molokai'
+Plugin 'go.vim'
+Plugin 'repeat.vim'
+Plugin 'wincent/Command-T'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'Lokaltog/powerline'
+Plugin 'Puppet-Syntax-Highlighting'
+Plugin 'JSON.vim'
+Plugin 'mako.vim'
+Plugin 'wombat256.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'othree/html5.vim'
-Bundle 'ack.vim'
-Bundle 'uarun/vim-protobuf'
-Bundle 'Jinja'
-Bundle 'bling/vim-airline'
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'othree/html5.vim'
+Plugin 'ack.vim'
+Plugin 'uarun/vim-protobuf'
+Plugin 'Jinja'
+Plugin 'bling/vim-airline'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'vim-scripts/a.vim'
+
+call vundle#end()
 
 filetype plugin indent on
-set nocompatible
+
 set modelines=0
 syntax on
 set t_Co=256
@@ -59,7 +63,7 @@ set nocompatible
 set fileformat=unix
 
 "set guifont=Droid\ Sans\ Mono\ Slashed\ 9
-set guifont=Menlo\ Regular\ for\ Powerline:h12
+set guifont=Anonymous\ Pro\ for\ Powerline\ 12
 set mouse=a
 
 set showmode
