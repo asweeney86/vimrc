@@ -36,6 +36,7 @@ Plugin 'Jinja'
 Plugin 'bling/vim-airline'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'vim-scripts/a.vim'
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()
 
