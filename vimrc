@@ -92,7 +92,7 @@ endif
 " turn on whitespace
 
 " Mapped keys
-map <silent> <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <silent> <F12> :!ctags -R --links=no --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 set tags+=./tags;$HOME
 
 map <F2> :NERDTreeToggle<cr>
@@ -122,10 +122,14 @@ set hlsearch
 au BufNewFile,BufRead *.ejs setlocal filetype=html
 au BufNewFile,BufRead *.spec.template setlocal filetype=spec
 
+au BufNewFile,BufRead *.conf setlocal filetype=json
+
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang,make,automake setlocal cindent noexpandtab shiftwidth=8 tabstop=8 softtabstop=8
 
 autocmd FileType php setlocal cindent noexpandtab shiftwidth=8 tabstop=8 softtabstop=8
+
+autocmd FileType json setlocal cindent noexpandtab shiftwidth=8 tabstop=8 softtabstop=8
 
 " for actual C (not C++) programming where comments have explicit end
 " characters, if starting a new line in the middle of a comment automatically
