@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "--[ Cloning repo"
 git clone https://github.com/asweeney86/vimrc.git ~/.vim
@@ -12,7 +12,8 @@ git submodule init
 git submodule update
 
 echo "--[ Installing all bundles"
-vim -T dumb -n -es +BundleInstall +qall 
+vim +PluginInstall +qall
+#vim -T dumb -n -es +PluginInstall +qall 
 
 echo "--[ command-t setup"
 pushd ~/.vim/bundle/Command-T/ruby/command-t/
