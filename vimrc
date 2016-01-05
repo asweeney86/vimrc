@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'molokai'
@@ -37,6 +37,9 @@ Plugin 'bling/vim-airline'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'vim-scripts/a.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'ternjs/tern_for_vim'
 
 call vundle#end()
 
@@ -45,7 +48,8 @@ filetype plugin indent on
 set modelines=0
 syntax on
 set t_Co=256
-silent! colorscheme molokai
+" silent! colorscheme molokai
+silent! colorscheme ChocolateLiquor
 
 set number
 set shiftwidth=4
@@ -160,15 +164,17 @@ set foldlevel=1         " set default fold level to 1
 
 " Limit popup menu height
 set pumheight=15
-  
+
 " Let vim powerline be fancy
 let g:Powerline_symbols = 'fancy'
 let g:CommandTScanDotDirectories = 1
 let g:CommandTAlwaysShowDotFiles = 1
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_always_populate_location_list = 1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " Disable code folding for vim
 let g:vim_markdown_folding_disabled=1
