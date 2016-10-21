@@ -40,6 +40,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 
@@ -75,7 +76,7 @@ set showmode
 set showcmd
 set wildmenu
 set wildmode=list:longest
-set wildignore+=*.o,*.obj,.git,*.so*,*.lo,*.la,*.a,*.Plo,*.lai,*.Po,node_modules/**
+set wildignore+=*.o,*.obj,.git,*.so*,*.lo,*.la,*.a,*.Plo,*.lai,*.Po,**/node_modules/**
 let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" 
 set ttyfast
 set backspace=indent,eol,start
@@ -97,7 +98,7 @@ endif
 " turn on whitespace
 
 " Mapped keys
-map <silent> <F12> :!ctags -R --links=no --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <silent> <F12> :!ctags -R --links=no --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --exclude=.git --exclude=node_modules .<CR>
 set tags+=./tags;$HOME
 
 map <F2> :NERDTreeToggle<cr>
@@ -166,16 +167,26 @@ set foldlevel=1         " set default fold level to 1
 set pumheight=15
 
 " Let vim powerline be fancy
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
 let g:CommandTScanDotDirectories = 1
 let g:CommandTAlwaysShowDotFiles = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 
 " Disable code folding for vim
 let g:vim_markdown_folding_disabled=1
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
