@@ -12,7 +12,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'molokai'
-Plugin 'go.vim'
+Plugin 'fatih/vim-go'
 Plugin 'repeat.vim'
 Plugin 'wincent/Command-T'
 Plugin 'Valloric/MatchTagAlways'
