@@ -14,7 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'molokai'
 Plugin 'fatih/vim-go'
 Plugin 'repeat.vim'
-Plugin 'wincent/Command-T'
+" Plugin 'wincent/Command-T'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
@@ -42,17 +42,21 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'wincent/terminus'
 Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
+
+set rtp+=/usr/local/opt/fzf
+nnoremap ? :GFiles<CR>
 
 filetype plugin indent on
 
 set modelines=0
 syntax on
 set t_Co=256
-" silent! colorscheme molokai
-silent! colorscheme ChocolateLiquor
+silent! colorscheme molokai
+"silent! colorscheme ChocolateLiquor
 
 set number
 set shiftwidth=4
@@ -79,7 +83,7 @@ set showcmd
 set wildmenu
 set wildmode=list:longest
 set wildignore+=*.o,*.obj,.git,*.so*,*.lo,*.la,*.a,*.Plo,*.lai,*.Po,**/node_modules/**
-let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" 
+" let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" 
 set ttyfast
 set backspace=indent,eol,start
 set scrolloff=3
@@ -97,7 +101,11 @@ if version >= 703
     set colorcolumn=80
     highlight ColorColumn ctermbg=8
 endif
-" turn on whitespace
+
+" Enable smarter line joins
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j
+endif
 
 " Mapped keys
 map <silent> <F12> :!ctags -R --links=no --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --exclude=.git --exclude=node_modules .<CR>
@@ -105,7 +113,7 @@ set tags+=./tags;$HOME
 
 map <F2> :NERDTreeToggle<cr>
 map <F3> :Tagbar<cr>
-noremap <F5> :CommandTFlush<CR>
+" noremap <F5> :CommandTFlush<CR>
 
 let NERDTreeIgnore = ['\.pyc$','\.o$']
 " Remap the escape key to jj
@@ -170,8 +178,8 @@ set pumheight=15
 
 " Let vim powerline be fancy
 " let g:Powerline_symbols = 'fancy'
-let g:CommandTScanDotDirectories = 1
-let g:CommandTAlwaysShowDotFiles = 1
+" let g:CommandTScanDotDirectories = 1
+" let g:CommandTAlwaysShowDotFiles = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
