@@ -41,6 +41,8 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 
@@ -194,3 +196,8 @@ endif
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+let g:fzf_buffers_jump = 1
+let g:fzf_tags_command = 'ctags -R'
+nnoremap <leader>t :FZF<CR>
+
